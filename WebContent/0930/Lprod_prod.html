@@ -69,7 +69,34 @@
 	 })//onchange
 	 
 	
-	 // prod 재품을 클릭하면 상세정보가 나온다 
+	 // prod 재품을 선택하면 (change)하면 해당 상품의 detail을 출력 
+	 // option - value 값을 가져온다 - prod_id 값이다.
+	 $("#prod").on("change",function(){
+		 
+		 	idvalue = $(this).val(); // prod_id 값 
+		 	
+		 	if(idvalue != 0){
+		 		
+		 	
+		 	
+		 	$.ajax({
+		 		url : "/jqpro/ProdList.do",
+		 		type : "get",
+		 		data : {
+		 			 
+		 			"id" : idvalue;
+		 		},
+		 		success : function(res) {
+					
+				},
+				error : function(xhr){
+					alert("상태 :" + xhr.status);
+				},
+				dataType : "json"
+		 	}) //ajax
+		 } //end if 
+		 
+	 })// change
 	
 	
 		
