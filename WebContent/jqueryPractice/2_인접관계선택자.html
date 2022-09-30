@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function(){
+		
+		// 인접관계 생성자 
+		
+		// 1. 부모 요소 선택자
+		// 선택한 요소의 부모 요소 선택  - $("요소 선택").parent() 
+		$("div#inner_div1").parent().css("border", "2px solid blue");		
+		
+		// 2. 상위 요소 선택자 
+		// 선택한 요소의 상위 요소를 모두 선택 
+		// 예시를 보면  inner_div1 안에 있는 첫번째 p태그의 상위 요소는 
+		//  inner_div1 , outer_div , body, html 이 있다.
+		$("p#div1_p_1").parents().css("border", "2px solid green");
+		
+		
+		// 3. 하위 요소 선택자 
+		
+	})	
+</script>
+</head>
+<body>
+	<div id = "outer_div" class = "outer_div">
+		
+		<div id = "inner_div1" class = "inner_div1">
+			<h1 id = "div1_h1_1" class = "div1_h1_1">h1태그</h1>
+			<h1 id = "div1_h1_2" class = "div1_h1_2">h2태그</h1>
+			<p id = "div1_p_1" class = "div1_p_1">p태그</p>
+		</div>
+
+		<div id = "inner_div2" class = "inner_div2">
+			<h1 id = "div2_h1_1" class = "div2_h1_1">h1태그</h1>
+			<h1 id = "div2_h1_2" class = "div2_h1_2">h2태그</h1>
+			<p id = "div2_p_1" class = "div2_p_1">p태그</p>	
+			
+			<div id ="inner_div_inner_div1">
+					<h1>h1태그</h1>	
+			</div>
+			
+		</div>
+	
+		</div>
+</body>
+</html>

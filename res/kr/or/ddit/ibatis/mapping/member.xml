@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="member">
+	
+	<select id="memberList" resultClass="memberVo">
+			select * from member
+	</select>
+<!-- 
+	select 실행시 
+	queryForList - 결과가 여려줄로 나타날때
+	queryForObject - 결과가 한줄 또는 한개 
+	
+	resultClass : 여러줄 or 한줄로 나타날 때  결과를 VO에 담는다 
+
+ -->
+
+
+</sqlMap>	

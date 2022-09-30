@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+
+
+function proc1(v) {
+	// v : 클릭한 p태그를 파라미터로 받음 
+	
+	vattr = $(v).attr('title');
+	
+	vimg = $('<img src ="../images/'+ vattr + '"alt ="'+ vattr +'">');
+
+	$(v).append(vimg);
+
+}
+
+function pimgshow(){
+	
+}
+
+
+	$(function(){
+/* 		vimg = $('<img src = "../images/Tulips.jpg">');
+		
+	$('#btn1').on('click', function () {
+		
+		//$('#result1').after(vimg);
+		  $('#result1').append(vimg);
+	})
+	
+	
+	$('#btn2').on('click', function () {
+		$('#result1').before(vimg);
+		}) */
+		
+		
+		$('.jpp').on('click',function(){
+			
+			vtitle = $(this).attr('title');
+			
+			vimg = $('<img>' , {
+					   'src' : `../images/${vtitle}`,
+					   'alt' : vtitle
+			})
+			 
+			$(this).append(vimg);
+		})
+		
+	})
+	
+</script>
+
+<style>
+img {
+	width : 100px;
+	height : 100px;
+
+}
+
+</style>
+</head>
+<body>
+
+<div>
+	<h3>
+   		대상요소 뒤에 추가 , 대상요소의 범위 바깥으로 추가 <br>
+   		after(자식요소)<br>
+   		insertAfter(부모요소)<br><br>
+   		
+   		대상요소의 앞으로 추가, 대상요소의 범위 안으로 추가 <br>
+   		before(자식요소),<br>
+   		insertBefore(부모요소)<br>
+   		
+	</h3>
+	<input type ="button" value = "before" id = "btn1">
+	<input type ="button" value = "after" id = "btn2">
+	<div id = "result1">
+	
+	</div>
+</div>
+<div>
+    <h3>
+    
+    	title 속성값을 가지고온다 .attr('title')
+    	title 속성값에 해당하는 이미지를 출력한다.
+    </h3>
+    <!-- script 방식 -->
+    <p onclick = "proc1(this)" title ="KoaLa.jpg">코알라 </p>
+    <p onclick = "proc1(this)"title ="Tulips.jpg">튤립 </p>
+    <p onclick = "proc1(this)"title ="Penguins.jpg">팽귄 </p>
+    <p onclick = "proc1(this)"title ="spongebob.ppg">스폰지밥</p>
+  
+     <h3>이벤트 일괄 등록 </h3>
+    <p class = "pp" title ="KoaLa.jpg">코알라 </p>
+    <p class = "pp" title ="Tulips.jpg">튤립 </p>
+    <p class = "pp" title ="Penguins.jpg">팽귄 </p>
+    <p class = "pp" title ="spongebob.ppg">스폰지밥</p>
+ 
+     <h3>jQuery 방식의 이벤트 </h3>
+    <p class = "jpp" title ="KoaLa.jpg">코알라 </p>
+    <p class = "jpp" title ="Tulips.jpg">튤립 </p>
+    <p class = "jpp" title ="Penguins.jpg">팽귄 </p>
+    <p class = "jpp" title ="spongebob.ppg">스폰지밥</p>
+</div>
+
+</body>
+</html>

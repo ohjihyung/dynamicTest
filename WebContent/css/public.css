@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+pre {
+	border-top : 2px solid gray;
+	border-bottom : 3px double blue;
+	background-color: #fddcaa;
+	padding : 5px;
+	margin : 3px;
+	font-size: 1.5em;
+	
+}
+
+div{
+   border : 1px dotted orange;
+   margin : 5px;
+   padding : 10px;
+   height : auto;
+   font-size : 1em;
+   
+}
+
+div h3 {
+	
+	font-size: 1em;
+	
+}
+
+div div {
+	
+	font-size :20px;
+	
+}
+
+
+/* 속성을 이용한 선택  */
+input[type=button], button[type=button]{	
+    width : 80px;
+    height : 40px;
+    background : blue;
+    border-radius: 20px;	
+	padding : 10px;
+	color : white;
+	
+}

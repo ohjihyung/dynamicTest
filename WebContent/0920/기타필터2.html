@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function(){
+		str = "";
+		$('#fhidden').on('click',function(){
+			str = "hidden객체<br>";
+			$('#testForm *:hidden').each(function(){
+				
+				//테그 이름 비교 - input? span ?? 	
+				if(this.tagName == "INPUT"){
+					str += "INPUT객체 :[" +  $(this).attr('name');
+					str += $(this).val() + "]<br>";
+				}else{
+					str += this.tagName +" 객체 : " + $(this).text();
+				}
+		
+			})
+			
+			$('.hidden').html(str);
+		})
+		
+		$('#fvisible').on('click', function(){
+			str = "visible객체<br>";
+			$('#testForm *:visible').each(function(){
+				//테그 이름 비교 - input? span ?? 	
+				if(this.tagName == "INPUT"){
+					
+					vtype = $(this).attr('type');
+					if(vtype == 'radio'){
+						//선택한거 가져와야됨
+						//선택된 radio?? (checked) 체크된 상태이냐>? 
+						if($(this).prop('checked')){
+							str += $(this).attr('name') + " : " + $(this).val() + "<br>";  
+						}
+						
+					}else {
+						
+						str += "INPUT객체 :[" +  $(this).attr('name');
+						str += $(this).val() + "]<br>";
+					}
+				}else if(this.tagName != "BR"){
+					str += this.tagName +" 객체 : " + $(this).text() +"<br>";
+				}
+		
+			})
+			
+			$('.visible').html(str);
+			})
+		
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<input type ="button" value = "hidden" id = "fhidden">
+	<input type ="button" value = "확인" id = "fvisible">
+	<div id = "result2">
+	<form id="testForm"> 
+		<input type="hidden" name="userAge" value="33">
+		<input type="hidden" name="userCity" value="대전">
+		
+		I D : <input type="text" name="userID" value="hong">  
+		<span style="display:none">ID가 중복됩니다. </span> <br>  
+		
+		이름 : <input type="text" name="userName" value="홍길동">   
+		<span style="visibility:hidden">이름을 입력하세요</span><br>  
+		
+		성별 : <input type="radio" name="sung" value="남" checked>남자  
+		<input type="radio" name="sung" value="여">여자  
+		
+	</form>
+	</div>
+</div>
+
+<div class = "hidden"></div>
+<div class = "visible"></div>
+
+</body>
+</html>

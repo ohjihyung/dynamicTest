@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	function proc1() {
+		$('form *:enabled').css('border', '1px solid red');
+		$('form *:disabled').css('border', '10px solid green');
+	}
+	
+	
+	$(function () {
+		$('#start').on('click',function(){
+			
+		a= setInterval(function() {
+			$('img').first().appendTo($('#result2'));
+		}, 500);
+		
+		$(this).prop('disabled',true);
+		$(this).css('color', 'green');
+		
+		$('#end').on('click',()=>{
+			
+			clearInterval(a);
+			$('#start').prop('disabled',false);
+			$(this).css('color', 'blue');
+			
+			
+		})
+			})
+		
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		:enabled : 사용가능한 요소를 선택시<br>
+   		:disabled : 사용불가능 요소를 선택시<br><br>
+   		
+   		실행시 동적으로 이벤트에 의해서 사용가능 또는 사용불가능을 변경 할 수 있다...
+	</h3>
+	<input type ="button" value = "확인" onclick = "proc1()">
+	<div id = "result1">
+	<form>
+	<input type="text"name="id" ><br>
+		<input type="password"name="pass" ><br>
+		<br>
+		<select name="disSelect" disabled >
+		<option>Option1</option>
+		<option>Option2</option>
+		<option>Option3</option>
+		<option>Option4</option>
+		</select>
+		<br>
+		<textarea name="enTextarea"rows=10 cols=20 >text</textarea><br>
+		<input type="button"value="확인" disabled onclick ="alert('hello')"> <br>
+</form>
+	</div>
+</div>
+
+<div>
+	<h3>
+   		사용불가능 / 가능 설정 (변경) <br>
+   		실행시 동적으로 이벤트에 의해서 사용가능 또는 사용불가능을 변경 할 수 있다 <br>
+   		
+   		attr('속성명', '값') : attr("id","aaa") / attr('type','button')
+   		
+   		prop('속성명', '값') : 상태값을 설정 : disabled, selected, checked, multiple, readonly
+   		 prop('disabled',true) : 사용 불가능 설정
+   		 prop('disabled',false) : 사용 가능 설정
+	</h3>
+	<input type ="button" value = "시작" id = "start">
+	<input type ="button" value = "종료" id = "end">
+	
+	<div id = "result2">
+		<img src ="../images/가구1.jpg" alt ="">
+		<img src ="../images/딸기스무디.jpg" alt ="">
+		<img src ="../images/대나무숲.jpg" alt ="">
+		<img src ="../images/국화.jpg" alt ="">
+		<img src ="../images/Hydrangeas.jpg" alt ="">
+		<img src ="../images/Koala.jpg" alt ="">
+		<img src ="../images/Jellyfish.jpg" alt ="">
+		<img src ="../images/셔틀콕.jpg" alt ="">
+	</div>
+</div>
+
+
+</body>
+</html>

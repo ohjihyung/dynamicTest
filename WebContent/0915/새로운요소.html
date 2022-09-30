@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<style>
+	img {
+		width : 100px;
+		height : 100px;
+	}
+
+</style>
+<script>
+	
+	
+	$(document).ready(function() {
+	
+		//하나만 있을때 
+	/* 	$('input')
+		$('input[type=button]')
+		$('input[value=확인]') */
+		
+		$('#btn2').on('click',function(){
+			//이미지 요소 만들기 
+			//vimg = $("<img src='../images/국화.jpg' alt ='국화.jpg'>");
+			//$(vimg).appendTo($('#result2'));
+			
+			$("<img src='../images/국화.jpg' onclick='imgclick(this)' alt ='국화.jpg'>").appendTo($('#result2'));
+		})
+		
+		
+		$('#btn').on('click', function() {
+		 //ptag = $('<p class="aa" onclick="proc2(this)">Hello </p>');
+		 
+		 ptag = $('<p></p>', {
+			 'class' : 'aa',
+			 'text' : 'Hello',
+		 	 'click' : function() {
+				$(this).css('font-size', '+=3px');
+			}
+		 });
+		 
+		  //부모.appendChild(자식) or  자식.appendTo(부모)
+		  //$('#result1').append(ptag);
+		  $(ptag).appendTo($('#result1'));
+		  
+		})
+		
+	})
+	
+	function proc2(vp) {
+		
+		$(vp).css('font-size','+=3px');
+	}
+	
+	function imgclick(aa){
+		//aa: 클릭한 img. this로 넘겨받는 매개변수, 지역변수
+		//aa.style.border = "2px solid blue";
+		
+		$(aa).css('border','2px solid blue');
+		
+		
+	}
+
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		jquery방식으로 이벤트 작성<br>
+   		새로운 요소 만들기 
+	</h3>
+	
+	
+	<input type ="button" value="확인" id = "btn">
+	<div id = "result1"></div>
+</div>
+<div>
+	<h3>
+   		jquery방식으로 이벤트 작성<br>
+   		새로운 요소 만들기 
+	</h3>
+	
+	<input type ="button" value="이미지추가" id = "btn2">
+	<div id = "result2"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	 $(function(){
+		//1. request 객체 생성 
+		xhttp = new XMLHttpRequest();
+		$("#bajax").on("click", function(){
+			
+			// 입력한 값을 가지고 온다 .
+			/* document.ff.name.value;
+			document.ff.id.value;
+			
+			document.getElementById("name").value;
+			document.getElementById("id").value;
+			 */
+			
+			vname = $('#name').val();
+			vid = $('#id').val();
+			
+			//입력데이터 체크 
+			if(vname.trim().length <1){
+				alert("이름 입력");
+				return false;
+			}
+			if(vid.trim().length < 1){
+				alert("아이디 입력");
+				return false;
+			}
+			
+			//요청 
+			xhttp.open("get", "test1.jsp?id=" + vid + "&name="+vname, true);
+			xhttp.send();
+			
+			//응답 	
+			xhttp.onreadystatechange = function () {
+				alert(this.readyState);
+				//readyState : 0  = open()메서드 수행전 
+				//readyState : 1  = 로딩중
+				//readyState : 2  = 로딩완료
+				//readyState : 3  = 서버처리중
+				//readyState : 4  = 서버처리 끝
+				//status : 200  = 성공
+				//status : 403  = 접근거부
+				//status : 404  = 파일/페이지 없음
+				//status : 304  = 요청오류
+				if(this.readyState == 4 && this.status == 200){
+					res = this.responseText // 결과 값 
+					$("#result2").html(res);
+				}
+			}
+		})  
+	 })
+ 
+</script>
+<style>
+  div {
+	 height :400px;
+	}
+  #result1 {
+  	height:100px;
+  }
+  #result2 {
+  	height:150px;
+  }
+</style>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<div id = "result1">
+	<form name = "ff" action = "test1.jsp" method = "get">
+
+	   	 이름 : <input type= "text" name = "name" id = "name"> <br>
+	 	 아이디 : <input type = "text" name = "id" id = "id"> <br>
+	 	 
+		<input type = "submit" value = "전송 (old)">
+		<input type = "button" value = "확인 (ajax)" id = "bajax">
+		
+	</form>
+	
+	</div>
+	
+	<div id = "result2"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<style>
+ span {
+ 	background-color: yellow;
+ 	font-size : 1.5em;
+ }
+ 
+  #p1, #p2 {
+ 	height: auto;
+ 	padding : 10px;
+ 	border: 1px dotted green;
+ 	
+ }
+
+</style>
+<script>
+
+/* 	$(document).ready(function() {
+		
+	})
+
+	window.onload = function() {
+		
+	} */
+	$(function() {
+		
+		$('#html').on('click', function () {
+			aa = $('body').html();
+			alert(aa);
+		})		
+		
+		$('#text').on('click', function () {
+			aa = $('body').text();
+			alert(aa);
+		})		
+		
+		$('#phtml').on('click', function () {
+			aa = $('p').html(); // span태그 포함
+			//alert(aa);
+			$('#p1').html(aa); //파라미터의 값을 넣으라는 뜻
+			$('#p2').text(aa);
+		})		
+		
+		$('#ptext').on('click', function () {
+			aa = $('p').text();
+			$('#p1').html(aa); //파라미터의 값을 넣으라는 뜻
+			$('#p2').text(aa);
+		})		
+		
+	})
+	
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		html(): 태그를 포함한 내용 <br>
+   		text() : 태그를 뺀 내용 <br>
+   		
+   		<br>
+   		p태그를 대상으로<br>
+   		html()  : p가 여려개인 경우 첫번째 인것만 태그를 포함한문장
+   		text() : 모든 p태그 대상으로 문자만 가져옴 
+	</h3>
+	<input type ="button" value = "html" id="html" >
+	<input type ="button" value = "text" id ="text">
+	<br><br>
+	
+	<input type ="button" value = "phtml" id="phtml" >
+	<input type ="button" value = "ptext" id ="ptext">
+	
+	<div id = "result1">
+	<p>1<span>홍길동</span></p>
+	<p>2<span>개나리</span></p>
+	<p>3<span>진달래</span></p>
+	</div>
+</div>
+
+<p id ="p1"></p>
+
+<p id ="p2"></p>
+
+</body>
+</html>

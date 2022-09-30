@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+</head>
+<body>
+<script src = "../js/jquery-3.6.1.min.js"></script>
+<script>
+	proc1 = (h2tag) =>{
+		//h2tag 변수는 this를 받은 매개변수다, 지역변수 
+		$(h2tag).hide();
+	}
+	
+	//script 실행전에 먼저 실행되는것 (document 생성 전에 실행)
+//1. $(function () {}) // $내부에 function을 실행하면 doc가 업로드 되기전에 실행 됨 
+//2. window.onload = function() {}
+  	$(document).ready(function() {		
+		
+		h2list = document.querySelectorAll('.elh2');
+		
+		for(i = 0; i < h2list.length ; i++){
+			h2list[i].addEventListener('click', proc2);
+		}
+	})
+	
+	function proc2() {
+		//this : 클릭한 h2요소
+		// this.hide() 사용 불가   this는 dom에서 가져온거  hide()는 query 꺼
+		//this.style.display = "none";
+		//$(this).hide();
+		
+		/*
+		   ---------오류--------------
+		   this.hide();
+		   $(this).style.display = "none";
+		   
+		*/
+		$(this).css('display', 'none');
+	}
+</script>
+<div>
+	<h3>
+   		각요소에 onclick= "proc1(this)" 수행 <br>
+   		클릭한 요소를 함수로 전달해야한다 - this파라미터 필요
+	</h3>
+	
+	<div id = "result1">
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다1.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다2.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다3.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다4.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다5.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다6.</h2>
+	<h2 onclick ="proc1(this)">클릭하면 사라집니다7.</h2>
+	</div>
+</div>
+<div>
+	<h3>
+		h2에 대한 이벤트 일괄등록 <br>
+   		h2에 class를 같은이름으로 부여한다 <br>
+   		addEventListener('click' 함수)
+	</h3>
+	
+	<div id = "result2">
+	<h2 class = "elh2">클릭하면 사라집니다1.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다2.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다3.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다4.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다5.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다6.</h2>
+	<h2 class = "elh2">클릭하면 사라집니다7.</h2>
+
+	</div>
+</div>
+
+</body>
+</html>

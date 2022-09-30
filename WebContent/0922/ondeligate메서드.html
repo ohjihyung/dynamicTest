@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	
+	$(function () {
+		cnt = 0;
+		//   bind 나 deligate 방식 모두 다 가능  
+			$(document).on("click", '.btn', function(){ 
+				 cnt++;
+				 newbtn = $("<input type='button' value ='새로운버튼'" + cnt +" class ='btn'>");	
+			  
+			 	 console.log(cnt);
+				 $("#result1").append(newbtn);
+				 
+				 r = parseInt(Math.random() * 256);
+				 g = parseInt(Math.random() * 256);
+				 b = parseInt(Math.random() * 256);
+			
+			 	 $("#result2").css("background", `rgb(${r},${g},${b})`);
+				
+			 	 
+			 	 })
+			
+			$("#boff").on("click", function(){
+				$(document).off("click",'.btn');
+				cnt = 0;
+			})
+			
+			$(".add").on("click", function () {
+				
+				vfile = "";
+				
+				vfile += "<div>";
+				vfile += "파일 <input type='button' value ='삭제' class ='del'>";
+				vfile += "</div>";
+				$("#result3").append(vfile);
+				
+			})
+			
+			
+			// 삭제 버튼 - 새로운 요소  - deligate 방식 , bind 방식 불가능
+			$(document).on("click",'.del', function () {
+				$(this).parent().remove();
+			})
+		
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   	
+	</h3>
+	<input type ="button" value = "추가" class ="btn">
+	<input type ="button" value = "해제" id = "boff">
+	<div id = "result1">
+		
+	</div>
+	<div id = "result2">
+		
+	</div>
+</div>
+
+<div>
+	<h3>
+   	
+	</h3>
+		<div id = "result3">
+		이름 <input type="text"><br>
+		파일 <input type ="file" value = "추가" class ="btn">
+		<input type ="button" value = "추가" class = "add">
+		
+	</div>
+	
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+function proc1() {
+	
+	$('p[title]').css('background-color','yellow');
+	
+	//type 속성이 password인 요소의 태두리 변경 
+	//$('input[type=password]').css({'border' : '2px solid red'});
+	
+	//반대로 
+	//$('input[type!=password]').css({'border' : '2px solid red'});
+	
+	//id가 result1인 범위에서 input[type!=password] 인 것들을 선택 
+	$('input[type!=password]','#result1').css({'border' : '2px solid red'});
+	
+	
+}
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<input type ="button" value = "확인" onclick = "proc1()">
+	<div id = "result1">
+	<p> 일반 문단입니다 </p>
+	<p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+	회원번호 <input type="text"><br>
+	비밀번호 <input type="password"><br>
+	<input type="button" value="확인"><br>
+	</div>
+</div>
+
+</body>
+</html>

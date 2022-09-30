@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	
+	 function proc1() {
+		
+		//plist = document.getElementsByTagName('p'); // DOM 객체변수
+		// plist.each() 사용 불가 !!
+		//$(plist).each() // plist dom 객체변수를 $()로 감싸서 jquery 객체로 변환하면 jquery메서드를 사용할수 있다. 
+		//$(plist).each)(function(i) {})
+		
+		//plist = $('p') // jquery 객체변수  : plist에  3개 들어감
+		//plist.each(function (i) {})
+		
+		// 위의 두줄을 한줄로 바꿈 
+		  str = ""; 
+		
+		//$.each($('p'), function (i) {
+		 $('p').each(function (i) {
+			 
+			 //str += $($('p')[i]).html();
+			 str += $('p').eq(i).html(); 
+				
+		 })
+		 
+		// alert(str);
+		 
+
+	  //document.getElementById('result1').innerHTML = str;
+	  //document.querySelector('#result1').innerHTML = str;
+	  $('#result1').html(str);
+	  
+	  //document.getElementById("result2").innerText = str;
+	  //document.querySelector('#result2').innerHTML = str;
+	  $('#result2').text(str);
+	  
+	}
+
+</script>
+</head>
+
+<div>
+	<h3>
+   		반복처리  : 
+   		$.each(대상요소, function(v1, v2){ }) <br>
+   		$(대상요소).each(function(v1,v2){ })<br>
+   		
+   		매개변수 v1, v2는 생략 가능함 <br>
+   		
+   		$('p').html() : 첫번째 p인요소만 태그포함하여 내용가져오기<br>
+   		
+   		-- p 가 여려개이면 반복문을 이용하여 처리한다.<br>
+   	
+	</h3>
+		
+	<p>1<span>홍길동</span></p>
+	<p>2<span>개나리</span></p>
+	<p>3<span>진달래</span></p>
+
+	<input type ="button" value = "확인" onclick = "proc1()">
+	<div>html 태그가 포함되어 있는 결과html을 출력한다 .</div>
+	<div id = "result1"></div>
+	<div id = "result2"></div>
+</div>
+
+</body>
+</html>

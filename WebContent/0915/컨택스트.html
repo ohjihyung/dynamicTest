@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+
+<script type="text/javascript">
+//1. window.onload = function(){}
+//2. $(document).ready(function(){ })
+
+//3.
+ $(function(){
+    // 클릭이벤트
+    $('.d2 div').on('click', function(){
+      // 여기서 this는 클릭한 div를 지칭
+       $('p', this).css('font-size', '+=3px');
+    })
+    
+    // 모든 p태그를 선택
+    $('p').css('background-color','yellow');
+    
+    // 1번째 form태그 안에 p태그를 선택한다
+    $('p', document.forms[1]).css('background-color','skyblue');
+    
+    
+ })
+ 
+ function divclick(divtag){
+   
+   // divtag는 클릭한 div요소이고 - this로 넘겨받은 매개변수이고 지역변수이다.
+   // $('divtag p') X -----------------오류
+   $('p', divtag).css('font-size', '+=5px');
+
+}
+</script>
+<style type="text/css">
+p {
+   border : 1px dotted blue;
+}
+</style>
+
+</head>
+<body>
+   <div>
+      <h3>
+             컨텍스트 : 검색 범위를 지정한다.
+       $('p') <br>
+       $('p',document.forms[1]) <br>
+       $('p',this) <br>
+      </h3>
+      <input type="button" value="확인" onclick="proc1()">
+      <p>무궁화 꽃이 피었습니다.</p>
+      <div id="result1" onclick="divclick(this)">
+         <p>무궁화 꽃이 피었습니다.</p>      
+      </div>
+
+      <div id="result2" onclick="divclick(this)">
+         <p>무궁화 꽃이 피었습니다.</p>      
+      </div>
+
+     <form>
+         <p>무궁화 꽃이 피었습니다.</p>      
+     </form>
+    
+     <form>
+         <p>무궁화 꽃이 피었습니다.</p>      
+     </form>
+   </div>
+   
+   <p>무궁화 꽃이 피었습니다.</p>   
+   
+   
+   <div class="d2">
+         <div>
+         <p>무궁화 꽃이 피었습니다.</p>   
+         </div>
+
+         <div>
+         <p>무궁화 꽃이 피었습니다.</p>   
+         </div>
+   </div>
+</body>
+</html>

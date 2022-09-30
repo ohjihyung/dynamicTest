@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function () {
+		$("img").attr("title", function () {
+			 
+			 vsrc = $(this).attr("src");
+			 startIndex = vsrc.lastIndexOf("/") + 1;
+			 endIndex = vsrc.lastIndexOf(".");
+			
+			vtitle = vsrc.substring(startIndex, endIndex);
+		
+		
+			return vtitle; 
+		})
+	})
+</script>
+
+<style>
+  img {
+  	width : 100px;
+  	height : 100px;
+  }
+
+</style>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<div id = "result1">
+		<img src = "../images/Koala.jpg" alt = "Koala.jpg">
+		<img src = "../images/Lighthouse.jpg" alt = "Lighthouse.jpg">
+		<img src = "../images/Sony1.jpg" alt = "Sony1.jpg">
+		<img src = "../images/Coca-Cola-logo.png" alt = "Coca-Cola-logo.png">
+		<img src = "../images/maxresdefault.jpg" alt = "maxresdefault.jpg">
+	
+	</div>
+</div>
+
+</body>
+</html>

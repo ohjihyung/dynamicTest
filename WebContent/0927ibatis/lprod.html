@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function() {
+	
+		$("#btn1").on("click", function(){
+			
+			$.ajax({
+				
+				url : "lprod.jsp",
+				type : "get",
+				
+				success : function(result) {
+					code = "<table border ='1'>";
+					code += "<tr><td>순번 </td><td>이름</td><td>코드번호</td></tr>";
+					$.each(result, function(i,v) {
+						code += `<tr><td>${v.id}</td><td>${v.nm}</td><td>${v.gu}</td>`	
+					})
+					code += "</table>";
+					
+					$("#result1").html(code);
+					
+				},
+				error : function(xhr) {
+					alert("상태 : " + xhr);
+				},
+				
+				dataType : "json"
+			})
+			
+		})
+		
+	})
+	
+</script>
+
+<style>
+	table {
+		border-radius: 10px;
+		width : 300px;
+	}
+	
+   td {
+   	 background: gray;
+   }
+
+</style>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<input type ="button" value = "확인" id = "btn1">
+	<div id = "result1">
+	
+	</div>
+</div>
+
+</body>
+</html>

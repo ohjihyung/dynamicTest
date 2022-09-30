@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function(){
+			
+		$("p").on("click",function(){
+		
+			if($(this).parent().is(".result1")){
+				//p 태그를 복사 붙여넣기를 하고 복사본의 글자색을 빨간색으로 바꿔라 
+			    // 복사 : clone   붙여넣기  :  append prepend after before
+			    $(this).clone().appendTo($(this).parent()).css('color','red');
+			}else {
+				alert("작업대상이 아닙니다.")
+			}
+		})
+	})
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		
+	</h3>
+	<div class = "result1">
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>	
+	<p>사랑은 늘 도망가 </p>
+	
+	<div class = "result1">
+		<p>별빛같은 나의사랑아 .</p>
+	</div>	
+</div>
+
+</body>
+</html>

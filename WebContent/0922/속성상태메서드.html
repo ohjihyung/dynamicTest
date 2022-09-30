@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+		$(function(){
+			
+			$("#btn1").on("click", function () {
+				check = $("#checkTest").prop("checked");
+				select = $("#selTest option").eq(2).prop("selected");
+				text = $("#txtTest").prop("readonly");
+				btn = $("#runBtn").prop("disabled");
+				
+				console.log(check, select, text, btn);
+				
+				$("#checkTest").prop("checked", !check);
+				$("#selTest option").eq(2).prop("selected",!select);
+				$("#txtTest").prop("readonly", !text);
+				$("#runBtn").prop("disabled", !btn);
+				
+				
+				/* if(check == true){
+					$("#checkTest option").eq(2).prop("selected", false);
+				}else {
+					$("#checkTest").prop("checked", true);
+				}
+				 */
+				
+			})
+			
+			$(".all").on("change", function () {
+			 	
+				//.all의 상태값을 가져온다 
+				 vall = $(this).prop("checked"); 
+			
+				// .chk의 상태값을 vall의 값으로 변경한다.
+				$(".chk").prop("checked", !vall);	
+			})
+			
+		})
+		
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		상태값얻기 
+   		prop("상태속성")
+	</h3>
+	<input type ="button" value = "확인" id = "btn1">
+	<div id = "result1">
+	<form>
+	체크박스(라디오버튼) :<input type="checkbox" id="checkTest"  checked><br><br>
+	
+	리스트박스(select객체) : 
+	 <select id="selTest">
+	     <option value="1">하나</option>
+	     <option value="2">둘</option>
+	     <option value="3" selected >셋</option> 
+	     <option value="4">넷</option>
+	 </select><br><br>
+	
+	 text객체	(readonly) : 
+	 <input type="text" readonly="readonly" value="가나다" id="txtTest"><br><br>
+	
+	 button객체(disabled) : 
+	 <input type="button"  disabled="disabled"  value="실행" id="runBtn" onclick = "alert('Hello~')">
+	</form>
+		</div>
+		
+	<div>
+	
+		<h3>
+		 전체 선택의 상태값(checked)을 가져온다.
+		 가져온값이 true 이면 1~7의  상태를  true로 설정한다.
+		</h3>
+		<input type="checkbox" name = "all" class ="all"> 전체선택
+		
+		<input type="checkbox" name = "chk" class ="chk" value ="1"> 1 
+		<input type="checkbox" name = "chk" class ="chk" value ="2"> 2 
+		<input type="checkbox" name = "chk" class ="chk" value ="3"> 3 
+		<input type="checkbox" name = "chk" class ="chk" value ="4"> 4 
+		<input type="checkbox" name = "chk" class ="chk" value ="5"> 5 
+		<input type="checkbox" name = "chk" class ="chk" value ="6"> 6 
+		<input type="checkbox" name = "chk" class ="chk" value ="7"> 7 
+		
+		
+	
+	
+	</div>
+</div>
+
+</body>
+</html>

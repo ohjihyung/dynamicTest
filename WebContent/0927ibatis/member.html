@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/public.css">
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script>
+	$(function(){
+		
+		$("#btn1").on("click", function (){
+			
+			 $.ajax({
+				 
+				 url : "member.jsp",
+				 type : "get",
+				 success : function(res){
+					 code = "<table border='1'>";
+					 code += "<tr><td>아이디 </td><td>이름</td><td>전화번호</td>"
+					 code += "<td>주소</td><td>이메일</td></tr>";
+					 
+					 $.each(res, function(i, v){
+						  code +=`<tr><td>${v.id}</td><td>${v.name}</td><td>${v.hp}</td><td>${v.addr}</td>` 
+						  code +=`<td>${v.mail}</td></tr>` 
+					 })
+					 code += "</table>";
+					 $("#result1").html(code);
+				 },
+				 error : function (xhr) {
+					 //200 이나올수 도있는데  error인데 200인경우 :  json 파싱 오류 문제... 생각해보길
+					alert("상태 : " + xhr.status);
+				},
+				
+				dataType : "json"
+				 
+			 })
+		
+		})//end of btn1.onclick
+	})//end of $function
+	
+</script>
+</head>
+<body>
+
+<div>
+	<h3>
+   		ibatis를 이용하여 오라클 db의 member테이블의 내용을 가져오기 <br>
+   		<br>
+   		오라클 라이브러리<br> 
+   		ibatis 라이브러리 <br>
+   		ibatis 설정파일- DB설정, VO alias 설정, mapper 설정  <br>
+   		SqlMapClient 생성을 위한 SqlMapClientFactory<br>
+   		sql 쿼리문 (crud)을 작성하는 xml 파일 -- mapper<br>
+	</h3>
+	<input type ="button" value = "확인" id = "btn1">
+	<div id = "result1">
+	
+	</div>
+</div>
+
+</body>
+</html>
